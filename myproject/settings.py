@@ -80,8 +80,8 @@ DATABASES = {
         'NAME': 'CoC Shop', 
         'USER': 'postgres',
         'PASSWORD': 'Npie#1959',
-        # 'HOST': '127.0.0.1', 
-        # 'PORT': '5432',
+        'HOST': '127.0.0.1', 
+        'PORT': '5432',
     }
 }
 
