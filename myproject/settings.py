@@ -75,12 +75,20 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'CoC Shop', 
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'Npie#1959',
+    #     'HOST': '127.0.0.1', 
+    #     'PORT': '5432',
+    # },
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'CoC Shop', 
-        'USER': 'postgres',
-        'PASSWORD': 'Npie#1959',
-        'HOST': '127.0.0.1', 
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'CoC Shop',
+        'USER': 'ctbbkiag',
+        'PASSWORD': 'CLvfXKLzJ84_k3IUBwLHmoN0Szr-2T59',
+        'HOST': 'dumbo.db.elephantsql.com',
         'PORT': '5432',
     }
 }
