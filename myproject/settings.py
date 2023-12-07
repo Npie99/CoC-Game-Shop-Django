@@ -13,13 +13,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 
 import os
-from google.cloud import firestore
-from google.oauth2 import service_account
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-SERVICE_ACCOUNT_KEY_PATH = os.path.join(BASE_DIR, 'coc-game-shop-2612e-firebase-adminsdk-od2jc-b85263fa6f.json')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -75,9 +71,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
-cred = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_KEY_PATH)
-db = firestore.Client(credentials=cred)
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -95,11 +88,6 @@ DATABASES = {
     #     'HOST': '127.0.0.1',
     #     'PORT': '5432',
     # },
-    'firestore': {
-        'ENGINE': 'django_fire.firestore',
-        'PROJECT_ID': 'coc-game-shop-2612e',
-        'CLIENT': db,
-    },
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
     #     'NAME': 'ctbbkiag',
