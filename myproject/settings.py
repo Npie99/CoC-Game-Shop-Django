@@ -89,11 +89,11 @@ DATABASES = {
         'PORT': '5432',
     },
     # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'ctbbkiag',
-    #     'USER': 'ctbbkiag',
-    #     'PASSWORD': 'CLvfXKLzJ84_k3IUBwLHmoN0Szr-2T59',
-    #     'HOST': 'dumbo.db.elephantsql.com',
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'cocshopDB',
+    #     'USER': 'postgre',
+    #     'PASSWORD': '',
+    #     'HOST': '/cloudsql/second-impact-407415:asia-southeast1:cocshop',
     #     'PORT': '5432',
     # }
 }
