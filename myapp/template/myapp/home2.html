@@ -3,7 +3,17 @@
 
 {% block header %}
 
-<h1>CoC Gaming Shop</h1>
+<h1>
+    <center>CoC Gaming Shop</center>
+</h1>
+
+{% if user.profile.usertype == 'vvip' %}
+<center> 15% Discount for VVIP member </center>
+{% elif user.profile.usertype == 'vip' %}
+<center> 10% Discount for VIP member </center>
+{% elif user.profile.usertype == 'member' %}
+<center> 5% Discount for member </center>
+{% endif %}
 
 {% endblock header %}
 

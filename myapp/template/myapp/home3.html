@@ -3,7 +3,17 @@
 
 {% block header %}
 
-<h1>CoC Gaming Shop</h1>
+<h1>
+    <center>CoC Gaming Shop</center>
+</h1>
+
+{% if user.profile.usertype == 'vvip' %}
+<center> 15% Discount for VVIP member </center>
+{% elif user.profile.usertype == 'vip' %}
+<center> 10% Discount for VIP member </center>
+{% elif user.profile.usertype == 'member' %}
+<center> 5% Discount for member </center>
+{% endif %}
 
 {% endblock header %}
 
@@ -23,7 +33,7 @@
             <!-- <p class="card-text">{{ game.description }}</p> -->
             <p class="card-text">price: {{ game.price }}</p>
             <p class="card-text">stock: {{ game.stock }}</p>
-            <a href="{% url 'gamedetail_page' 'NTD' game.id %}" class="btn btn-primary">Game Detail</a>
+            <a href="{% url 'gamedetail_page' 'NDS' game.id %}" class="btn btn-primary">Game Detail</a>
             {% if game.specfile %}
             <a href="{{game.specfile.url}}" class="btn btn-primary">Download Specfile</a>
             {% endif %}

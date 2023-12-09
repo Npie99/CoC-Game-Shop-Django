@@ -166,7 +166,7 @@ def addInfo(request):
             elif (type == 'PS4'):
                 fs = FileSystemStorage(location='media/productPS4')
             elif (type == 'NDS'):
-                fs = FileSystemStorage(location='media/productNTD')
+                fs = FileSystemStorage(location='media/productNDS')
             filename = fs.save(file_image_name, file_image)
             upload_file_url = fs.url(filename)
             print('Picture url: ', upload_file_url)
@@ -191,11 +191,11 @@ def addInfo(request):
             upload_file_url = fs.url(filename)
             print('Specfile url: ', upload_file_url)
             if (type == 'PS5'):
-                newTitle.specfile = 'productPS5' + upload_file_url[6:]
+                newTitle.specfile = 'specfilePS5' + upload_file_url[6:]
             elif (type == 'PS4'):
-                newTitle.specfile = 'productPS4' + upload_file_url[6:]
+                newTitle.specfile = 'specfilePS4' + upload_file_url[6:]
             elif (type == 'NDS'):
-                newTitle.specfile = 'productNDS' + upload_file_url[6:]
+                newTitle.specfile = 'specfileNDS' + upload_file_url[6:]
             
         newTitle.save()
 
@@ -359,10 +359,56 @@ def gameDetailPage(request, type, cid):
         game = productPS4.objects.get(id=cid)
     elif type == 'NTD':
         game = productNintendo.objects.get(id=cid)
+
     context['game'] = game
     print(context['game'])
 
+    if request.method == 'POST':
+        data = request.POST.copy()
+        price = data.get('price')
+        stock = data.get('stock')
+
+        game.price = price
+        game.stock = stock
+        game.save()
+
+        try:
+            return redirect('home_page')
+        except:
+            context['message'] = "Edit Supply Fail"
+            return render(request, 'myapp/gamedetail.html', context)
+
+
     return render(request, 'myapp/gamedetail.html', context)
+
+def buyGamePage(request, type, cid):
+    context = {}
+    if type == 'ps5':
+        game = productPS5.objects.get(id=cid)
+    elif type == 'ps4':
+        game = productPS4.objects.get(id=cid)
+    elif type == 'NTD':
+        game = productNintendo.objects.get(id=cid)
+
+    context['game'] = game
+    print(context['game'])
+
+    if request.method == 'POST':
+        if game.stock > 0:
+            game.stock -= 1
+            game.save()
+        else:
+            context['message'] = "Out of Stock"
+            return render(request, 'myapp/buygame.html', context)
+
+        try:
+            return redirect('home_page')
+        except:
+            context['message'] = "Buy Game Fail"
+            return render(request, 'myapp/buygame.html', context)
+
+
+    return render(request, 'myapp/buygame.html', context)
 
 
 class CrudView(TemplateView):

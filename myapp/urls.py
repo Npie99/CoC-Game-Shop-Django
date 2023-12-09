@@ -14,6 +14,7 @@ urlpatterns = [
     path('editprofile/', editProfile, name="editprofile_page"),
     path('action/<int:cid>/', actionPage, name="action_page"),
     path('gamedetail/<str:type>/<int:cid>/', gameDetailPage, name="gamedetail_page"),
+    path('buygame/<str:type>/<int:cid>/', buyGamePage, name="buygame_page"),
     path('crud/', CrudView.as_view(), name='crud_ajax'),
     path('ajax/crud/create/', CreateCrudUser.as_view(), name='crud_ajax_create'),
     path('ajax/crud/delete/', DeleteCrudUser.as_view(), name='crud_ajax_delete'),

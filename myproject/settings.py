@@ -76,18 +76,18 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 DATABASES = {
     
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / "db.sqlite3",
-    # },
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'CoC Shop', 
-        'USER': 'postgres',
-        'PASSWORD': 'Npie#1959',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / "db.sqlite3",
     },
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'CoC Shop', 
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'Npie#1959',
+    #     'HOST': '127.0.0.1',
+    #     'PORT': '5432',
+    # },
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql',
     #     'NAME': 'cocshopDB',
@@ -96,6 +96,23 @@ DATABASES = {
     #     'HOST': '/cloudsql/second-impact-407415:asia-southeast1:cocshop',
     #     'PORT': '5432',
     # }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'ctbbkiag',
+    #     'USER': 'ctbbkiag',
+    #     'PASSWORD': 'CLvfXKLzJ84_k3IUBwLHmoN0Szr-2T59',
+    #     'HOST': 'rain.db.elephantsql.com',
+    #     'PORT': '5432',
+    # }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'sql12668643',
+    #     'USER': 'sql12668643',
+    #     'PASSWORD': 'Q5rFuQ51rg',
+    #     'HOST': 'sql12.freemysqlhosting.net',  # Usually 'localhost' or the host provided by the hosting service
+    #     'PORT': '3306',  # Usually '3306'
+    # }
+
 }
 
 # DATABASE_ROUTERS = ['myapp.router.FirestoreRouter']
