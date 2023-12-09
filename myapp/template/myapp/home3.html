@@ -33,7 +33,16 @@
             <!-- <p class="card-text">{{ game.description }}</p> -->
             <p class="card-text">price: {{ game.price }}</p>
             <p class="card-text">stock: {{ game.stock }}</p>
-            <a href="{% url 'gamedetail_page' 'NDS' game.id %}" class="btn btn-primary">Game Detail</a>
+            <div class="row">
+                <div class="col-6">
+                    <a href="{% url 'gamedetail_page' 'NDS' game.id %}" class="btn btn-primary">Game Detail</a>
+                </div>
+                {% if user.profile.usertype != 'admin' %}
+                <div class="col-6">
+                    <a href="{% url 'buygame_page' 'NDS' game.id %}" class="btn btn-primary">Buy Game</a>
+                </div>
+                {% endif %}
+            </div>
             {% if game.specfile %}
             <a href="{{game.specfile.url}}" class="btn btn-primary">Download Specfile</a>
             {% endif %}

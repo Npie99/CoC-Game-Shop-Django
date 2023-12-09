@@ -381,6 +381,7 @@ def gameDetailPage(request, type, cid):
 
     return render(request, 'myapp/gamedetail.html', context)
 
+@login_required(login_url='/login')
 def buyGamePage(request, type, cid):
     context = {}
     if type == 'ps5':
